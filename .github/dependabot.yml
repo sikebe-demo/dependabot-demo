@@ -1,3 +1,6 @@
+# Configure Dependabot version updates
+# Note: You cannot configure Dependabot alerts using the dependabot.yml file.
+
 version: 2
 updates:
 - package-ecosystem: nuget
@@ -5,10 +8,26 @@ updates:
   schedule:
     interval: daily
   reviewers:
-  - SIkebe
+  - sikebe-demo-org/net
+
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
     interval: daily
   reviewers:
   - SIkebe
+
+- package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every weekday
+      interval: "weekly"
+      time: "09:00"
+      # Use Japan Standard Time (UTC +09:00)
+      timezone: "Asia/Tokyo"
+    # Allow up to 10 open pull requests for npm dependencies
+    open-pull-requests-limit: 10
+    allow:
+      # Allow both direct and indirect updates for all packages
+      - dependency-type: "all"
+    rebase-strategy: "auto"
