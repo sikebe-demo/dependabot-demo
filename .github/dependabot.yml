@@ -18,16 +18,16 @@ updates:
   - SIkebe
 
 - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      # Check for updates to GitHub Actions every weekday
-      interval: "weekly"
-      time: "09:00"
-      # Use Japan Standard Time (UTC +09:00)
-      timezone: "Asia/Tokyo"
-    # Allow up to 10 open pull requests for npm dependencies
-    open-pull-requests-limit: 10
-    allow:
-      # Allow both direct and indirect updates for all packages
-      - dependency-type: "all"
-    rebase-strategy: "auto"
+  directory: "/"
+  schedule:
+    # Check for updates to GitHub Actions every weekday
+    interval: "weekly"
+    time: "09:00"
+    # Use Japan Standard Time (UTC +09:00)
+    timezone: "Asia/Tokyo"
+  # Allow up to 10 open pull requests for npm dependencies
+  open-pull-requests-limit: 10
+  allow:
+    # Allow both direct and indirect updates for all packages
+    - dependency-type: "all"
+  rebase-strategy: "auto"
