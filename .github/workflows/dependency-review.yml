@@ -12,3 +12,10 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: "Dependency Review"
         uses: actions/dependency-review-action@v5
+        with:
+          # Only fail on vulnerabilities that ship to users. Build-time tooling
+          # such as ESLint and workbox-build still resolves minimatch v3/v5,
+          # which cannot depend on a patched brace-expansion release. Those
+          # findings are still reported, but they cannot be remediated without
+          # dropping the tooling entirely.
+          fail-on-scopes: runtime
